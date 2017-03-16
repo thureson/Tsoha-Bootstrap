@@ -1,0 +1,14 @@
+Johdanto__
+
+Tarkoitus on tehdä sivu, joka listaa kuntavaaliehdokkaita ja heihin liittyviä tietoja. On mahdollista kirjautua sisään adminina, jolloin pääsee muokkaamaan, poistamaan ja lisäämään tietoja. Normaaleille käyttäjille sallittua on kommentoiminen.
+
+
+Käyttötapaukset__
+
+Käyttäjä selaa ehdokkaita.
+Käyttäjä lisää ehdokkaaseen liittyvän kommentin.
+Admin lisää tietoja.
+Admin poistaa tietoja.
+Admin muokkaa tietoja.
+Käyttäjä kirjautuu.
+Admin kirjautuu.

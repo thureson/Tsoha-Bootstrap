@@ -2,9 +2,10 @@
 
 Yleisiä linkkejä:
 
-* [Linkki sovellukseeni](https://www.cs.helsinki.fi)
-* [Linkki dokumentaatiooni](https://www.github.com)
+* [Linkki sovellukseeni](http://thureson.users.cs.helsinki.fi/tsohavaalit/)
+* [Linkki dokumentaatiooni](https://github.com/thureson/Tsoha-Bootstrap)
 
 ## Työn aihe
 
-Laita tähän aihekuvaus tai [linkki valmiiseen aiheeseen](http://advancedkittenry.github.io/suunnittelu_ja_tyoymparisto/aiheet/Pokemon-kanta.html) 
+Tsohavaalit on sovellus, joka listaa kuntavaaliehdokkaita ja heihin liittyviä tietoja.
+[Linkki dokumentaatioon](https://github.com/thureson/Tsoha-Bootstrap/doc/dokumentaatio.pdf)
