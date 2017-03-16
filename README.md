@@ -3,9 +3,9 @@
 Yleisiä linkkejä:
 
 * [Linkki sovellukseeni](http://thureson.users.cs.helsinki.fi/tsohavaalit/)
-* [Linkki dokumentaatiooni](https://github.com/thureson/Tsoha-Bootstrap)
+* [Linkki dokumentaatiooni](https://raw.githubusercontent.com/thureson/Tsoha-Bootstrap/master/doc/dokumentaatio.pdf)
 
 ## Työn aihe
 
 Tsohavaalit on sovellus, joka listaa kuntavaaliehdokkaita ja heihin liittyviä tietoja.
-[Linkki dokumentaatioon](https://github.com/thureson/Tsoha-Bootstrap/doc/dokumentaatio.pdf)
+
