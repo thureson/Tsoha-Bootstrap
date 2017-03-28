@@ -23,3 +23,11 @@
   $routes->get('/ehdokas/:id', function($id) {
     ehdokkaat_controller::ehdokas($id);
   });
+  
+  $routes->get('/new', function(){
+    ehdokkaat_controller::newEhdokas();
+  });
+  
+  $routes->post('/new', function(){
+    ehdokkaat_controller::store();
+  });

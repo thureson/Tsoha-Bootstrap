@@ -47,4 +47,10 @@ class Ehdokas extends BaseModel {
 
         return null;
     }
+    
+    public function save($id, $nimi, $kuvaus, $puolue_id){
+
+        $query = DB::connection()->prepare('INSERT INTO Ehdokas(id, nimi, kuvaus, puolue_id) VALUES(:id, :nimi, :kuvaus, :puolue_id)');
+        $query->execute(array('id' => $id, 'nimi' => $nimi, 'kuvaus' => $kuvaus, 'puolue_id' => $puolue_id));
+    }
 }

@@ -47,4 +47,10 @@ class Historia extends BaseModel {
 
         return $historiat;
     }
+    
+    public static function save($id, $ehdokas_id, $aanimaara, $vuosi){
+
+        $query = DB::connection()->prepare('INSERT INTO Historia(id, ehdokas_id, aanimaara, vuosi) VALUES(:id, :ehdokas_id, :aanimaara, :vuosi)');
+        $query->execute(array('id' => $id, 'ehdokas_id' => $ehdokas_id, 'aanimaara' => $aanimaara, 'vuosi' => $vuosi));
+    }
 }

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Uusi ehdokas</h1>
+
+  <form method="post" action="{{base_path}}/new">
+    <div class="form-group">
+      <label>Nimi</label>
+      <input type="text" name="nimi" class="form-control">
+    </div>
+      
+    <div class="form-group">
+      <label>Kuvaus</label>
+      <textarea name="kuvaus" class="form-control"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label>Puolue_id</label>
+      <input type="text" name="puolue_id" class="form-control">
+    </div>
+
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Uusi</button>
+    </div>
+  </form>
+{% endblock %}
