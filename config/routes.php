@@ -12,10 +12,14 @@
     HelloWorldController::etusivu();
   });
   
-  $routes->get('/lista', function() {
-  HelloWorldController::lista();
+  $routes->get('/ehdokkaat', function() {
+    ehdokkaat_controller::ehdokkaat();
   });
   
   $routes->get('/yksikko', function() {
-  HelloWorldController::yksikko();
+    HelloWorldController::yksikko();
+  });
+  
+  $routes->get('/ehdokas/:id', function($id) {
+    ehdokkaat_controller::ehdokas($id);
   });

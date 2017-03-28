@@ -16,8 +16,8 @@
         View::make('suunnitelmat/etusivu.html');
     }
     
-    public static function lista(){
-        View::make('suunnitelmat/lista.html');
+    public static function ehdokkaat(){
+        View::make('suunnitelmat/ehdokkaat.html');
     }
     
     public static function yksikko(){
