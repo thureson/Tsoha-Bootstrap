@@ -48,6 +48,10 @@
     ehdokkaat_controller::storeHistoria($id);
   });
   
+  $routes->post('/ehdokas/:id/:hist/destroy', function($id, $hist){
+    ehdokkaat_controller::destroyHistoria($id, $hist);
+  });
+  
   $routes->get('/logina', function(){
     UserController::login();
   });

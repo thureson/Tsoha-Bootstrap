@@ -55,6 +55,12 @@ class Historia extends BaseModel {
         $query->execute(array('id' => $id, 'ehdokas_id' => $ehdokas_id, 'aanimaara' => $aanimaara, 'vuosi' => $vuosi));
     }
     
+    public static function destroy($id){
+
+        $query = DB::connection()->prepare('DELETE FROM Historia WHERE id = :id');
+        $query->execute(array('id' => $id));
+    }
+    
     public function validate_aanimaara(){
         return $this->validate_integer_value($this->aanimaara, 0, 99999999);
     }

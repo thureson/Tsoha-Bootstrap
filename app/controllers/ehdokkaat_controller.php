@@ -98,6 +98,11 @@ class ehdokkaat_controller extends BaseController{
         View::make('suunnitelmat/newhist.html', array('ehdokas' => $ehdokas));
     }
     
+    public static function destroyHistoria($id, $hist_id){
+        Historia::destroy($hist_id);
+        ehdokkaat_controller::ehdokas($id);
+    }
+    
     public static function updateEhdokas($ehdokas_id){
         $params = $_POST;
         $ehdokas = new Ehdokas(Array(

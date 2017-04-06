@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
+{% import "macros/forms.html" as forms%}
+
   <h1>{{ehdokas.nimi}}</h1>
 
   <p>
@@ -22,7 +24,9 @@
           <td>{{historia.vuosi}}</td>
           <td>{{historia.aanimaara}}</td>
           <td>{{ehdokas.puolue}}</td>
-          <th><a class="btn btn-default btn-sm" href="#">Poista</a></th>
+          {% if user_logged_in %}
+          <th> {{forms.destroy_button("#{base_path}/ehdokas/#{ehdokas.id}/#{historia.id}/destroy")}} </th>
+          {% endif %}
         </tr>
       {% endfor %}
     </tbody>
