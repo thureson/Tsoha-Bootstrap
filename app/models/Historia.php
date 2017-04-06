@@ -6,6 +6,7 @@ class Historia extends BaseModel {
     
     public function __construct($attributes = null) {
         parent::__construct($attributes);
+        $this->validators = array('validate_aanimaara', 'validate_vuosi');
     }
     
     public static function all(){
@@ -21,7 +22,7 @@ class Historia extends BaseModel {
                 'id' => $row['id'],
                 'ehdokas_id' => $row['ehdokas_id'],
                 'aanimaara' => $row['aanimaara'],
-                '$vuosi' => $row['$vuosi']
+                '$vuosi' => $row['vuosi']
             ));
         }
 
@@ -52,5 +53,13 @@ class Historia extends BaseModel {
 
         $query = DB::connection()->prepare('INSERT INTO Historia(id, ehdokas_id, aanimaara, vuosi) VALUES(:id, :ehdokas_id, :aanimaara, :vuosi)');
         $query->execute(array('id' => $id, 'ehdokas_id' => $ehdokas_id, 'aanimaara' => $aanimaara, 'vuosi' => $vuosi));
+    }
+    
+    public function validate_aanimaara(){
+        return $this->validate_integer_value($this->aanimaara, 0, 99999999);
+    }
+    
+    public function validate_vuosi(){
+        return $this->validate_integer_value($this->vuosi, 1900 , 3000);
     }
 }

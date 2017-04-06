@@ -3,14 +3,14 @@
   <h1>{{ehdokas.nimi}}</h1>
 
   <p>
-    <a href="#" class="btn btn-success">Lisää tietoa</a>
+    <a href="{{base_path}}/ehdokas/{{ehdokas.id}}/newhist" class="btn btn-success">Lisää tietoa</a>
   </p>
 
   <table class="table table-striped table-bordered">
     <thead>
       <tr>
         <th>Vuosi</th>
-        <th>Aanimaara</th>
+        <th>Äänimäärä</th>
         <th>Puolue</th>
         <th></th>
       </tr>
@@ -21,8 +21,8 @@
         <tr>
           <td>{{historia.vuosi}}</td>
           <td>{{historia.aanimaara}}</td>
-          <td>{{ehdokas.puolue_id}}</td>
-          <th><a class="btn btn-default btn-sm" href="#">Muokkaa</a></th>
+          <td>{{ehdokas.puolue}}</td>
+          <th><a class="btn btn-default btn-sm" href="#">Poista</a></th>
         </tr>
       {% endfor %}
     </tbody>

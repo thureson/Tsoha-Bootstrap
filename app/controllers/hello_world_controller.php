@@ -13,7 +13,12 @@
     }
     
     public static function etusivu(){
-        View::make('suunnitelmat/etusivu.html');
+        $user_logged_in = self::get_user_logged_in();
+        if (!$user_logged_in){
+            View::make('suunnitelmat/etusivu.html');
+        }else{
+            View::make('suunnitelmat/etusivu.html', array('user_logged_in' => $user_logged_in));
+        }
     }
     
     public static function ehdokkaat(){

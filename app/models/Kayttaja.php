@@ -2,7 +2,7 @@
 
 class Kayttaja extends BaseModel {
     
-    public $id, $tunnus;
+    public $id, $tunnus, $salasana;
     
     public function __construct($attributes = null) {
         parent::__construct($attributes);
@@ -19,7 +19,8 @@ class Kayttaja extends BaseModel {
 
             $kayttajat[] = new Kayttaja(array(
                 'id' => $row['id'],
-                'tunnus' => $row['tunnus']
+                'tunnus' => $row['tunnus'],
+                'salasana' => $row['tunnus']
             ));
         }
 

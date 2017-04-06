@@ -20,9 +20,9 @@
       {% for ehdokas in ehdokkaat %}
         <tr>
           <td><a href="{{base_path}}/ehdokas/{{ehdokas.id}}">{{ehdokas.nimi}}</a></td>
-          <td>{{ehdokas.puolue_id}}</td>
+          <td>{{ehdokas.puolue}}</td>
           <td><label class="label label-danger">{{ehdokas.kuvaus}}</label></td>
-          <th><a class="btn btn-default btn-sm" href="#">Muokkaa</a></th>
+          <th><a class="btn btn-default btn-sm" href="{{base_path}}/ehdokas/{{ehdokas.id}}/muokkaa">Muokkaa</a></th>
         </tr>
       {% endfor %}
     </tbody>
