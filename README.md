@@ -12,3 +12,9 @@ Yleisiä linkkejä:
 
 Tsohavaalit on sovellus, joka listaa kuntavaaliehdokkaita ja heihin liittyviä tietoja.
 
+
+Tunnukset testausta varten:
+
+	käyttäjätunnus --> Tom
+	salasana --> test
+
