@@ -1,4 +1,8 @@
 <?php
+    
+  function check_logged_in(){
+      BaseController::check_logged_in();
+  }
 
   $routes->get('/', function() {
     HelloWorldController::etusivu();
@@ -32,7 +36,7 @@
     ehdokkaat_controller::store();
   });
   
-  $routes->get('/ehdokas/:id/muokkaa', function($id){
+  $routes->get('/ehdokas/:id/muokkaa', 'check_logged_in', function($id){
     ehdokkaat_controller::muokkaaEhdokas($id);
   });
   
