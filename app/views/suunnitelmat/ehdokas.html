@@ -14,7 +14,10 @@
         <th>Vuosi</th>
         <th>Äänimäärä</th>
         <th>Puolue</th>
+        {% if user_logged_in %}
         <th></th>
+        <th></th>
+        {% endif %}
       </tr>
     </thead>
 
@@ -25,6 +28,7 @@
           <td>{{historia.aanimaara}}</td>
           <td>{{ehdokas.puolue}}</td>
           {% if user_logged_in %}
+          <th><a class="btn btn-default btn-sm" href="{{base_path}}/ehdokas/{{ehdokas.id}}/{{historia.id}}/muokkaa">Muokkaa</a></th>
           <th> {{forms.destroy_button("#{base_path}/ehdokas/#{ehdokas.id}/#{historia.id}/destroy")}} </th>
           {% endif %}
         </tr>

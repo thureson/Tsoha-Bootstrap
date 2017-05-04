@@ -59,7 +59,7 @@ class Ehdokas extends BaseModel {
         $query->execute(array('id' => $id, 'nimi' => $nimi, 'kuvaus' => $kuvaus, 'puolue' => $puolue));
     }
     
-    public function delete($id){
+    public function destroy($id){
         $query = DB::connection()->prepare('DELETE FROM Ehdokas WHERE id = :id');
         $query->execute(array('id' => $id));
     }

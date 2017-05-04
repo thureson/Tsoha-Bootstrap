@@ -56,6 +56,18 @@
     ehdokkaat_controller::destroyHistoria($id, $hist);
   });
   
+  $routes->get('/ehdokas/:id/:hist/muokkaa', 'check_logged_in', function($id, $hist){
+    ehdokkaat_controller::muokkaaHistoria($id, $hist);
+  });
+  
+  $routes->post('/ehdokas/:id/:hist/muokkaa', function($id, $hist){
+    ehdokkaat_controller::updateHistoria($id, $hist);
+  });
+  
+  $routes->get('/ehdokas/:id/destroy', function($id){
+    ehdokkaat_controller::destroyEhdokas($id);
+  });
+  
   $routes->get('/logina', function(){
     UserController::login();
   });

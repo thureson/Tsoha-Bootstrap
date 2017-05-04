@@ -92,6 +92,12 @@ class ehdokkaat_controller extends BaseController{
         $ehdokas = Ehdokas::find($id);
         View::make('suunnitelmat/muokkaa.html', array('ehdokas' => $ehdokas));
     }
+        
+    public static function muokkaaHistoria($ehdokas_id, $hist_id){
+        $ehdokas = Ehdokas::find($ehdokas_id);
+        $historia = Historia::findOne($ehdokas_id, $hist_id);
+        View::make('suunnitelmat/muokkaahist.html', array('ehdokas' => $ehdokas, 'historia' => $historia));
+    }
     
     public static function lisaaEhdokasHistoria($id){
         $ehdokas = Ehdokas::find($id);
@@ -101,6 +107,11 @@ class ehdokkaat_controller extends BaseController{
     public static function destroyHistoria($id, $hist_id){
         Historia::destroy($hist_id);
         ehdokkaat_controller::ehdokas($id);
+    }
+    
+    public static function destroyEhdokas($id){
+        Ehdokas::destroy($id);
+        ehdokkaat_controller::ehdokkaat();
     }
     
     public static function updateEhdokas($ehdokas_id){
@@ -119,6 +130,26 @@ class ehdokkaat_controller extends BaseController{
             Redirect::to('/ehdokkaat', array('errors' => $errors));           
         } else {
             View::make('suunnitelmat/muokkaa.html', array('errors' => $errors, 'ehdokas' => $ehdokas));
+        }        
+    }
+    
+    public static function updateHistoria($ehdokas_id, $hist_id){
+        $params = $_POST;
+        $ehdokas = Ehdokas::find($ehdokas_id);
+        $historia = new Historia(Array(
+            'id' => $hist_id,
+            'ehdokas_id' => $ehdokas_id,
+            'aanimaara' => $params['aanimaara'],
+            'vuosi' => $params['vuosi']
+        ));
+        
+        $errors = $historia->errors();
+        
+        if (count($errors) == 0){
+            $historia->update($historia->id, $historia->ehdokas_id, $historia->aanimaara, $historia->vuosi);
+            Redirect::to('/ehdokas/' . $ehdokas_id, array('errors' => $errors));           
+        } else {
+            View::make('suunnitelmat/muokkaahist.html', array('errors' => $errors, 'ehdokas' => $ehdokas, 'historia' => $historia));
         }        
     }
 }

@@ -22,7 +22,7 @@ class Historia extends BaseModel {
                 'id' => $row['id'],
                 'ehdokas_id' => $row['ehdokas_id'],
                 'aanimaara' => $row['aanimaara'],
-                '$vuosi' => $row['vuosi']
+                'vuosi' => $row['vuosi']
             ));
         }
 
@@ -30,7 +30,7 @@ class Historia extends BaseModel {
     }
     
     public static function find($ehdokas_id){
-
+        
         $query = DB::connection()->prepare('SELECT * FROM Historia WHERE ehdokas_id = :ehdokas_id');
         $query->execute(array('ehdokas_id' => $ehdokas_id));
         $rows = $query->fetchAll();
@@ -49,9 +49,33 @@ class Historia extends BaseModel {
         return $historiat;
     }
     
+    public static function findOne($ehdokas_id, $hist_id){
+        
+        $query = DB::connection()->prepare('SELECT * FROM Historia WHERE ehdokas_id = :ehdokas_id AND id = :id');
+        $query->execute(array('id' => $hist_id, 'ehdokas_id' => $ehdokas_id));
+        $row = $query->fetch();
+
+        if($row){
+            $historia = new Historia(array(
+                'id' => $row['id'],
+                'ehdokas_id' => $row['ehdokas_id'],
+                'aanimaara' => $row['aanimaara'],
+                'vuosi' => $row['vuosi']
+            ));
+        
+            return $historia;
+        }
+        return null;
+    }
+    
     public static function save($id, $ehdokas_id, $aanimaara, $vuosi){
 
         $query = DB::connection()->prepare('INSERT INTO Historia(id, ehdokas_id, aanimaara, vuosi) VALUES(:id, :ehdokas_id, :aanimaara, :vuosi)');
+        $query->execute(array('id' => $id, 'ehdokas_id' => $ehdokas_id, 'aanimaara' => $aanimaara, 'vuosi' => $vuosi));
+    }
+    
+    public function update($id, $ehdokas_id, $aanimaara, $vuosi){
+        $query = DB::connection()->prepare('UPDATE Historia SET id = :id, ehdokas_id = :ehdokas_id, aanimaara = :aanimaara, vuosi = :vuosi WHERE id = :id AND ehdokas_id = :ehdokas_id');
         $query->execute(array('id' => $id, 'ehdokas_id' => $ehdokas_id, 'aanimaara' => $aanimaara, 'vuosi' => $vuosi));
     }
     

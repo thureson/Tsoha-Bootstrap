@@ -13,6 +13,7 @@
         <th>Puolue</th>
         <th>Virka</th>
         <th></th>
+        <th></th>
       </tr>
     </thead>
 
@@ -23,6 +24,7 @@
           <td>{{ehdokas.puolue}}</td>
           <td><label class="label label-danger">{{ehdokas.kuvaus}}</label></td>
           <th><a class="btn btn-default btn-sm" href="{{base_path}}/ehdokas/{{ehdokas.id}}/muokkaa">Muokkaa</a></th>
+          <th><a class="btn btn-danger" href="{{base_path}}/ehdokas/{{ehdokas.id}}/destroy">Poista</a></th>
         </tr>
       {% endfor %}
     </tbody>
