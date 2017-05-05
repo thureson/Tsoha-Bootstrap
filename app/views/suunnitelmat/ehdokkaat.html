@@ -12,8 +12,10 @@
         <th>Ehdokas</th>
         <th>Puolue</th>
         <th>Virka</th>
+        {% if user_logged_in %}
         <th></th>
         <th></th>
+        {% endif %}
       </tr>
     </thead>
 
@@ -23,8 +25,10 @@
           <td><a href="{{base_path}}/ehdokas/{{ehdokas.id}}">{{ehdokas.nimi}}</a></td>
           <td>{{ehdokas.puolue}}</td>
           <td><label class="label label-danger">{{ehdokas.kuvaus}}</label></td>
+          {% if user_logged_in %}
           <th><a class="btn btn-default btn-sm" href="{{base_path}}/ehdokas/{{ehdokas.id}}/muokkaa">Muokkaa</a></th>
           <th><a class="btn btn-danger" href="{{base_path}}/ehdokas/{{ehdokas.id}}/destroy">Poista</a></th>
+          {% endif %}
         </tr>
       {% endfor %}
     </tbody>
